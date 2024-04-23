@@ -14,6 +14,8 @@ import Image from "apps/website/components/Image.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { Buttons, Logo } from "../../components/header/Header.tsx";
+import { useUI } from "deco-sites/dedecocamp/sdk/useUI.ts";
+import GlobalLikeIcon from "deco-sites/dedecocamp/islands/GlobalLikeIcon.tsx";
 
 // Make it sure to render it on the server only. DO NOT render it on an island
 function Navbar(
@@ -27,6 +29,7 @@ function Navbar(
   },
 ) {
   const platform = usePlatform();
+  const { likesCountGlobal } = useUI();
 
   // Mobile header
   if (device === "mobile") {
@@ -69,10 +72,11 @@ function Navbar(
   return (
     <div class="hidden sm:grid sm:grid-cols-3 items-center border-b border-base-200 w-full px-6">
       <ul
-        class={`flex gap-6 col-span-1 ${
+        class={`flex gap-6 col-span-1 items-center ${
           logoPosition === "left" ? "justify-center" : "justify-start"
         }`}
       >
+        <GlobalLikeIcon />
         {items.map((item) => <NavItem item={item} />)}
       </ul>
       <div

@@ -18,6 +18,7 @@ export default defineApp(async (_req, ctx) => {
 
       {/* Include Icons and manifest */}
       <Head>
+        <link rel="stylesheet" href="/toastfy.css" />
         {/* Enable View Transitions API */}
         <meta name="view-transition" content="same-origin" />
 
